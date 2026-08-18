@@ -28,7 +28,19 @@
 
         <!-- Google Login -->
         <div id="loginSection">
-            <div id="googleLoginButton"></div>
+            <div id="g_id_onload"
+                data-client_id="..."
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+            </div>
+        
+            <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular">
+            </div>
         </div>
 
         <div id="userSection" class="hidden">
