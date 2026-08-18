@@ -864,6 +864,24 @@ window.handleCredentialResponse = function (response) {
     showGrid();
 };
 
+window.addEventListener("load", function () {
+    google.accounts.id.initialize({
+        client_id: "51138653486-2durmi4se3f8s60ibm04utsjvgit0ad8.apps.googleusercontent.com",
+        callback: handleCredentialResponse,
+        use_fedcm_for_prompt: false
+    });
+
+    google.accounts.id.renderButton(
+        document.querySelector(".g_id_signin"),
+        {
+            type: "standard",
+            size: "large",
+            theme: "outline",
+            text: "sign_in_with",
+            shape: "rectangular"
+        }
+    );
+});
 // =====================================================
 // DECODE GOOGLE JWT
 // =====================================================
