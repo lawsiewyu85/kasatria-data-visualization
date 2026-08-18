@@ -820,6 +820,8 @@ function onWindowResize() {
 
 window.handleCredentialResponse = function (response) {
 
+    alert("Google callback received!");
+    
     console.log("=================================");
     console.log("Google login successful!");
 
