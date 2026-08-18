@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kasatria Data Visualization</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fix Three.js "Failed to resolve module specifier three" -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Kasatria Data Visualization</h1>
+
+        <!-- Google Login -->
+        <div id="loginSection">
+            <div id="g_id_onload"
+                data-client_id="51138653486-2durmi4se3f8s60ibm04utsjvgit0ad8.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular">
+            </div>
+        </div>
+
+        <div id="userSection" class="hidden">
+
+            <img id="userPhoto" src="" alt="User">
+
+            <div>
+                <div id="userName"></div>
+                <div id="userEmail"></div>
+            </div>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+        <!-- Visualization Controls -->
+        <div class="controls">
+            <button id="tableBtn">Table</button>
+            <button id="sphereBtn">Sphere</button>
+            <button id="helixBtn">Double Helix</button>
+            <button id="gridBtn">Grid</button>
+        </div>
+
+    </header>
+
+    <main>
+        <div id="tableView"></div>
+
+        <div id="visualization"></div>
+
+        <div id="infoPanel" class="hidden">
+            <button id="closeInfo">×</button>
+
+            <img id="infoPhoto" src="" alt="Photo">
+
+            <h2 id="infoName"></h2>
+
+            <div class="infoRow">
+                <span>Age</span>
+                <strong id="infoAge"></strong>
+            </div>
+
+            <div class="infoRow">
+                <span>Country</span>
+                <strong id="infoCountry"></strong>
+            </div>
+
+            <div class="infoRow">
+                <span>Interest</span>
+                <strong id="infoInterest"></strong>
+            </div>
+
+            <div class="infoRow">
+                <span>Net Worth</span>
+                <strong id="infoNetWorth"></strong>
+            </div>
+        </div>
+    </main>
+
+    <div id="loading">
+        Loading data...
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>

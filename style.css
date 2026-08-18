@@ -1,0 +1,339 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050505;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding-top: 25px;
+}
+
+h1 {
+    margin: 0 0 18px;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.controls {
+    display: none;
+    justify-content: center;
+    gap: 12px;
+}
+
+.controls button {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 7px;
+    padding: 10px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    background: white;
+    color: black;
+}
+
+.controls button.active {
+    background: white;
+    color: black;
+}
+
+#visualization {
+    position: fixed;
+    left: 0;
+    top: 110px;
+    width: 100vw;
+    height: calc(100vh - 110px);
+}
+
+#visualization canvas {
+    display: block;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+#tableView {
+    position: fixed;
+    top: 110px;
+    left: 30px;
+    right: 30px;
+    bottom: 20px;
+    overflow: auto;
+    display: none;
+    z-index: 5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background: #222;
+    z-index: 2;
+}
+
+th {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+}
+
+td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #333;
+}
+
+tbody tr:hover {
+    background: #222;
+}
+
+/* =========================
+   INFO PANEL
+========================= */
+
+#infoPanel {
+    position: fixed;
+    right: 25px;
+    top: 130px;
+    width: 300px;
+    background: rgba(20, 20, 20, 0.96);
+    border: 1px solid #777;
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 20;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    pointer-events: auto;
+}
+
+#infoPanel.hidden {
+    display: none;
+}
+
+#closeInfo {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#infoPhoto {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 15px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#infoPanel h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid #333;
+}
+
+.infoRow span {
+    color: #aaa;
+}
+
+.infoRow strong {
+    text-align: right;
+}
+
+/* =========================
+   3D CARD
+========================= */
+
+.person-card {
+    width: 140px;
+    height: 90px;
+    background: rgba(30, 30, 30, 0.92);
+    border: 1px solid #777;
+    border-radius: 10px;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    pointer-events: auto !important;
+    user-select: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.person-card:hover {
+    border-color: white;
+    transform: scale(1.05);
+}
+
+.person-card img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.person-card .person-name {
+    font-size: 10px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000;
+    font-weight: bold;
+}
+
+.person-card .person-country {
+    font-size: 9px;
+    color: #000;
+}
+
+#loading {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.periodic-table {
+    display: grid;
+
+    grid-template-columns: repeat(20, 140px);
+
+    grid-template-rows: repeat(10, 160px);
+
+    gap: 10px;
+
+    padding: 20px;
+
+    width: max-content;
+}
+
+.table-person {
+    border: 3px solid;
+
+    border-radius: 10px;
+
+    background: #111;
+
+    padding: 8px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+
+.table-person:hover {
+    transform: scale(1.05);
+}
+
+.table-photo {
+    width: 75px;
+    height: 75px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.table-name {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #000;
+    font-weight: bold;
+}
+
+.table-country {
+    font-size: 11px;
+    margin-top: 3px;
+    color: #000;
+}
+
+/* =========================
+   GOOGLE USER
+========================= */
+
+#loginSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#loginSection.hidden {
+    display: none;
+}
+
+#userSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+#userSection.hidden {
+    display: none;
+}
+
+#userPhoto {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#userName {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#userEmail {
+    font-size: 11px;
+    color: #aaa;
+}
+
+#logoutBtn {
+    background: transparent;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 6px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: white;
+    color: black;
+}
